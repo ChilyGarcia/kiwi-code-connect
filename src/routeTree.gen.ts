@@ -9,8 +9,50 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TrainingRouteImport } from './routes/training'
+import { Route as TiendaRouteImport } from './routes/tienda'
+import { Route as RugbyRouteImport } from './routes/rugby'
+import { Route as Personaliza3dRouteImport } from './routes/personaliza-3d'
+import { Route as FutbolRouteImport } from './routes/futbol'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as ClubesRouteImport } from './routes/clubes'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TrainingRoute = TrainingRouteImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TiendaRoute = TiendaRouteImport.update({
+  id: '/tienda',
+  path: '/tienda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RugbyRoute = RugbyRouteImport.update({
+  id: '/rugby',
+  path: '/rugby',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Personaliza3dRoute = Personaliza3dRouteImport.update({
+  id: '/personaliza-3d',
+  path: '/personaliza-3d',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FutbolRoute = FutbolRouteImport.update({
+  id: '/futbol',
+  path: '/futbol',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClubesRoute = ClubesRouteImport.update({
+  id: '/clubes',
+  path: '/clubes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +61,130 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/clubes': typeof ClubesRoute
+  '/contacto': typeof ContactoRoute
+  '/futbol': typeof FutbolRoute
+  '/personaliza-3d': typeof Personaliza3dRoute
+  '/rugby': typeof RugbyRoute
+  '/tienda': typeof TiendaRoute
+  '/training': typeof TrainingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/clubes': typeof ClubesRoute
+  '/contacto': typeof ContactoRoute
+  '/futbol': typeof FutbolRoute
+  '/personaliza-3d': typeof Personaliza3dRoute
+  '/rugby': typeof RugbyRoute
+  '/tienda': typeof TiendaRoute
+  '/training': typeof TrainingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/clubes': typeof ClubesRoute
+  '/contacto': typeof ContactoRoute
+  '/futbol': typeof FutbolRoute
+  '/personaliza-3d': typeof Personaliza3dRoute
+  '/rugby': typeof RugbyRoute
+  '/tienda': typeof TiendaRoute
+  '/training': typeof TrainingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/clubes'
+    | '/contacto'
+    | '/futbol'
+    | '/personaliza-3d'
+    | '/rugby'
+    | '/tienda'
+    | '/training'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/clubes'
+    | '/contacto'
+    | '/futbol'
+    | '/personaliza-3d'
+    | '/rugby'
+    | '/tienda'
+    | '/training'
+  id:
+    | '__root__'
+    | '/'
+    | '/clubes'
+    | '/contacto'
+    | '/futbol'
+    | '/personaliza-3d'
+    | '/rugby'
+    | '/tienda'
+    | '/training'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ClubesRoute: typeof ClubesRoute
+  ContactoRoute: typeof ContactoRoute
+  FutbolRoute: typeof FutbolRoute
+  Personaliza3dRoute: typeof Personaliza3dRoute
+  RugbyRoute: typeof RugbyRoute
+  TiendaRoute: typeof TiendaRoute
+  TrainingRoute: typeof TrainingRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/training': {
+      id: '/training'
+      path: '/training'
+      fullPath: '/training'
+      preLoaderRoute: typeof TrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tienda': {
+      id: '/tienda'
+      path: '/tienda'
+      fullPath: '/tienda'
+      preLoaderRoute: typeof TiendaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rugby': {
+      id: '/rugby'
+      path: '/rugby'
+      fullPath: '/rugby'
+      preLoaderRoute: typeof RugbyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/personaliza-3d': {
+      id: '/personaliza-3d'
+      path: '/personaliza-3d'
+      fullPath: '/personaliza-3d'
+      preLoaderRoute: typeof Personaliza3dRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/futbol': {
+      id: '/futbol'
+      path: '/futbol'
+      fullPath: '/futbol'
+      preLoaderRoute: typeof FutbolRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clubes': {
+      id: '/clubes'
+      path: '/clubes'
+      fullPath: '/clubes'
+      preLoaderRoute: typeof ClubesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +197,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ClubesRoute: ClubesRoute,
+  ContactoRoute: ContactoRoute,
+  FutbolRoute: FutbolRoute,
+  Personaliza3dRoute: Personaliza3dRoute,
+  RugbyRoute: RugbyRoute,
+  TiendaRoute: TiendaRoute,
+  TrainingRoute: TrainingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
